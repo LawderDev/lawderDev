@@ -13,18 +13,31 @@ const arrayFadeSkill = [
     document.querySelector("#Skills #Skills1"),
     document.querySelector("#Skills #Skills2"),
     document.querySelector("#Skills #Skills3"),
-    document.querySelector("#Skills p"),
     document.querySelector("#Skills #Skills4"),
+    document.querySelector("#Skills #Skills5"),
 ];
 
-const arrayStartCareer = document.querySelectorAll("#Skills ul");
-let arrayFadeCareer=Array.from(arrayStartCareer);
-arrayFadeCareer=arrayFadeCareer.push(document.querySelector("#Skills p"));
+const arrayFadeCareer = [
+    document.querySelector("#Career #Career1"),
+    document.querySelector("#Career #Career2"),
+];
 
-console.log(arrayFadeCareer);
+const arrayFadeAbout = [
+    document.querySelector("#About #About1"),
+    document.querySelector("#About #About2"),
+];
 
+    const arrayFadeIcons = [
+    document.querySelector("a[href=\"https://www.facebook.com/LawderDev-100756294963908\"]"),
+    document.querySelector("a[href=\"https://www.instagram.com/lawderdev/\"]"),
+    document.querySelector("a[href=\"https://twitter.com/lawderDev\"]"),
+    document.querySelector("a[href=\"https://www.linkedin.com/in/kenny-ramin-35977619a/\"]"),
+];
 
-console.log(arrayFadeSkill);
+const arrayFadeInfos = [
+    document.querySelector("#Infos p"),
+    document.querySelector("a[href=\"mailto:kenny.ramin433@gmail.com\"]"),
+];
 
 let timeFade = 240;
 
@@ -32,7 +45,7 @@ let timeFade = 240;
  * Initialize the opacities of elements
  */
 function InitOpacities(elements) {
-    for (let i = 0; i < arrayFadeHome.length; i++) {
+    for (let i = 0; i < elements.length; i++) {
         if (elements[i] != undefined  && elements[i].tagName !== "HEADER") {
             elements[i].style.opacity = 0;
         } else if(elements[i] != undefined){
@@ -85,9 +98,51 @@ window.addEventListener("scroll", function fadeSkills() {
     const target = skills.offsetTop;
     let windowHeight = document.documentElement.clientHeight;
     if (window.pageYOffset + windowHeight >= target) {
+        fadeStart(arrayFadeSkill);
+        removeEventListener("scroll", fadeSkills);
+    }
+});
+
+window.addEventListener("scroll", function fadeSkills() {
+    const skills = document.querySelector("#Career");
+    const target = skills.offsetTop;
+    let windowHeight = document.documentElement.clientHeight;
+    if (window.pageYOffset + windowHeight >= target) {
         fadeStart(arrayFadeCareer);
         removeEventListener("scroll", fadeSkills);
     }
 });
+
+window.addEventListener("scroll", function fadeSkills() {
+    const skills = document.querySelector("#About");
+    const target = skills.offsetTop;
+    let windowHeight = document.documentElement.clientHeight;
+    if (window.pageYOffset + windowHeight >= target) {
+        fadeStart(arrayFadeAbout);
+        removeEventListener("scroll", fadeSkills);
+    }
+});
+
+window.addEventListener("scroll", function fadeSkills() {
+    const skills = document.querySelector("#Icons");
+    const target = skills.offsetTop;
+    let windowHeight = document.documentElement.clientHeight;
+    if (window.pageYOffset + windowHeight >= target) {
+        fadeStart(arrayFadeIcons);
+        removeEventListener("scroll", fadeSkills);
+    }
+});
+
+window.addEventListener("scroll", function fadeSkills() {
+    const skills = document.querySelector("#Infos");
+    const target = skills.offsetTop;
+    let windowHeight = document.documentElement.clientHeight;
+    if (window.pageYOffset + windowHeight >= target) {
+        fadeStart(arrayFadeInfos);
+        removeEventListener("scroll", fadeSkills);
+    }
+});
+
+
 
 fadeStart(arrayFadeHome);

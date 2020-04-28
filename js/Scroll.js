@@ -20,10 +20,12 @@ let nb = 70;
 
 function InitScroll(element) {
     for (let i = 0; i < element.length; i++) {
-        if (element[i].className.indexOf("Left") != -1)
+        if (element[i].className.indexOf("Left") != -1) {
             element[i].style.marginLeft = -100 + "%";
-        else
+        }
+        else {
             element[i].style.marginLeft = 160 + "%";
+        }
     }
 }
 
@@ -50,7 +52,6 @@ function scrollAction(element, marginStart) {
             case "right":
                 scroll -= 1;
                 element.style.marginLeft = scroll + "%";
-
                 if (scroll <= 0)
                     clearInterval(x);
         }

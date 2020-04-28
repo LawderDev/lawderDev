@@ -43,6 +43,7 @@ header h2 {
 
 body {
     margin: 0;
+
 }
 
 header {
@@ -50,6 +51,11 @@ header {
     background-repeat: no-repeat;
     background-size: cover;
     height: 45em;
+}
+
+
+section{
+    overflow: hidden;
 }
 
 section div {
@@ -149,19 +155,19 @@ footer div {
     display: flex;
 }
 
-#icons {
+#Icons {
     width: 100%;
     justify-content: center;
     background-color: #4D4D4D;
     height: 50%;
 }
 
-#icons a {
+#Icons a {
     margin: auto;
     color: white;
 }
 
-#infos {
+#Infos {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -169,12 +175,12 @@ footer div {
     height: 50%;
 }
 
-#infos a {
+#Infos a {
     margin: auto;
     color: white;
 }
 
-#infos p {
+#Infos p {
     margin: auto;
     color: white;
 }
