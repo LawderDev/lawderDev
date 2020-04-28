@@ -1,6 +1,7 @@
 nav {
     display: flex;
     flex-direction: row;
+
 }
 
 nav a {
@@ -29,7 +30,8 @@ nav p {
 
 h1 {
     text-align: center;
-    margin-top: 12%;
+    padding-top: 15%;
+    margin-top: 0;
     font-size: 5em;
     font-family: 'Yu Gothic', 'Segoe UI', Tahoma, Verdana, sans-serif;
 }
@@ -43,7 +45,6 @@ header h2 {
 
 body {
     margin: 0;
-
 }
 
 header {
@@ -56,6 +57,7 @@ header {
 
 section{
     overflow: hidden;
+    height: 45em;
 }
 
 section div {
@@ -126,25 +128,37 @@ main h2 {
     background-image: URL(../img/article1.jpg);
     background-repeat: no-repeat;
     background-size: cover;
-    height: 45em;
+}
+
+#Skills ul {
+    padding-left: 7%;
+}
+
+#Skills article{
+    margin-left: 5%;
 }
 
 #Career {
     background-image: URL(../img/article2.jpg);
     background-repeat: no-repeat;
     background-size: cover;
-    height: 45em;
+}
+
+#Career article{
+    margin-left: 10%;
 }
 
 #Career h2 {
     color: black;
+}
+h3{
+    width: 100%;
 }
 
 #About {
     background-image: URL(../img/article3.jpg);
     background-repeat: no-repeat;
     background-size: cover;
-    height: 45em;
 }
 
 footer {
@@ -159,12 +173,16 @@ footer div {
     width: 100%;
     justify-content: center;
     background-color: #4D4D4D;
-    height: 50%;
 }
 
 #Icons a {
     margin: auto;
     color: white;
+}
+
+#Icons img{
+    height: 72px;
+    width: 72px;
 }
 
 #Infos {
@@ -191,5 +209,48 @@ footer div {
 }
 
 @media screen and (max-width:1200px) {
-    margin-left: 30%;
+    nav div{
+        margin-left: 34%;
+        width: 100%;
+
+    }
+
+    nav a{
+        font-size: 1em;
+    }
+
+    nav p{
+        font-size: 1em;
+        width: 30%;
+    }
 }
+
+@media screen and (max-width:768px) {
+
+    section{
+        height: 80em;
+    }
+    section div {
+        display: flex;
+        flex-direction:column;
+    }
+
+    h1{
+        font-size: 2.5em;
+    }
+
+    header h2{
+        font-size: 2em;
+    }
+
+    nav a {
+        font-size: 1.2em;
+    }
+
+    nav p{
+        font-size: 1.2em;
+    }
+
+
+}
+
