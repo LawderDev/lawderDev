@@ -225,11 +225,12 @@ footer div {
     }
 }
 
-@media screen and (max-width:768px) {
+@media screen and (max-width:740px) {
 
     section{
         height: 80em;
     }
+
     section div {
         display: flex;
         flex-direction:column;
@@ -249,6 +250,10 @@ footer div {
 
     nav p{
         font-size: 1.2em;
+    }
+
+    section p{
+        font-size: 1.7em;
     }
 
 

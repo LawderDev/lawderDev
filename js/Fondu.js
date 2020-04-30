@@ -149,11 +149,15 @@ window.addEventListener("scroll", function fadeSkills() {
     const target = skills.offsetTop;
     let windowHeight = document.documentElement.clientHeight;
     if (window.pageYOffset + windowHeight >= target) {
-        skills.style.position = "fixed";
-        skills.style.width = 100 + "%";
-        skills.style.backgroundColor = "rgba(128, 128, 128, 0.7)";
-        skills.style.opacity = 0.7;
-        title.style.paddingTop = 20.5 + "%";
+        if(window.matchMedia("(max-width: 740px)").matches)
+            title.style.paddingTop = 15 + "%";
+        else {
+            skills.style.position = "fixed";
+            skills.style.width = 100 + "%";
+            skills.style.backgroundColor = "rgba(128, 128, 128, 0.7)";
+            skills.style.opacity = 0.7;
+            title.style.paddingTop = 20.5 + "%";
+        }
     }
 });
 
