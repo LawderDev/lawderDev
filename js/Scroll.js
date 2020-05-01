@@ -15,6 +15,16 @@ const arrayScrollAbout = [
     document.querySelector("#About .titleRightA")
 ];
 
+const arrayAutoScroll = [
+    document.querySelector("#linkA"),
+    document.querySelector("#linkB"),
+    document.querySelector("#linkC"),
+    document.querySelector("#linkD")
+];
+
+let isScroll = false;
+
+
 let nb = 70;
 
 
@@ -83,9 +93,143 @@ function LaunchScroll(element) {
 }
 
 
+function ScrollAutoBottom(target)
+{
+    isScroll = true;
+    window.scrollBy(0,7);
+    let timeOut = setTimeout( function(){
+        console.log(target);
+        let windowHeight = document.documentElement.clientHeight;
+        if (window.pageYOffset + windowHeight >= target) {
+            isScroll = false;
+            clearInterval(timeOut);
+        }else{
+        ScrollAutoBottom(target);
+        }
+    }, 1);
+
+}
+
+function ScrollAutoTop(target){
+    isScroll = true;
+    window.scrollBy(0,-7);
+    let timeOut = setTimeout( function(){
+        console.log(target);
+        let windowHeight = document.documentElement.clientHeight;
+        if (window.pageYOffset + windowHeight <= target) {
+            isScroll = false;
+            clearInterval(timeOut);
+
+        }else{
+            ScrollAutoTop(target);
+        }
+    }, 1);
+}
+
+function InitAutoScroll(){
+    for(let i = 0;i<arrayAutoScroll.length;i++){
+        arrayAutoScroll[i].addEventListener('click',function() {
+
+            arrayAutoScroll[i].removeAttribute('href');
+            console.log(arrayAutoScroll[i].id);
+            let windowHeight = document.documentElement.clientHeight;
+            let elementToGo;
+            let target;
+            let compensation;
+            let mediaAccueil = false;
+
+            let compensationAccueil;
+            if (window.matchMedia("(max-height: 740px)").matches && window.matchMedia("(max-width: 740px)").matches) {
+                compensationAccueil = -50;
+                compensation = 550;
+            }
+            else if(window.matchMedia("(max-height: 850px)").matches && window.matchMedia("(max-width: 740px)").matches) {
+                compensationAccueil = -100;
+                compensation = 475;
+            }
+            else
+                compensation=80;
+
+            if(!isScroll) {
+                switch (arrayAutoScroll[i].id) {
+                    case "linkA":
+                        console.log("enter");
+                        elementToGo = document.querySelector("#Home");
+
+                        if (window.matchMedia("(max-width: 740px)").matches) {
+                            mediaAccueil = true;
+                            target = elementToGo.offsetTop + elementToGo.offsetHeight - compensationAccueil;
+                        }else{
+                            mediaAccueil = false;
+                        }
+                        console.log(elementToGo);
+                        break;
+                    case "linkB":
+                        console.log("enter")
+                        elementToGo = document.querySelector("#Skills");
+                        break;
+                    case "linkC":
+                        elementToGo = document.querySelector("#Career");
+                        break;
+                    case "linkD":
+                        elementToGo = document.querySelector("#About");
+                        break;
+                }
+
+                if(!mediaAccueil) {
+                    if (window.matchMedia("(max-width: 740px)").matches)
+                        target = elementToGo.offsetTop + elementToGo.offsetHeight - compensation;
+                    else
+                        target = elementToGo.offsetTop + elementToGo.offsetHeight - compensation;
+                }
+                if (window.pageYOffset + windowHeight >= target)
+                    ScrollAutoTop(target);
+                else
+                    ScrollAutoBottom(target);
+            }
+
+        });
+    }
+
+
+}
+
+InitAutoScroll();
 InitScroll(arrayScrollSkill);
 InitScroll(arrayScrollCareer);
 InitScroll(arrayScrollAbout);
+
+window.addEventListener("scroll", function stickNav() {
+    const nav = document.querySelector("#Home nav");
+    const title = document.querySelector("#Home h1");
+    const target = nav.offsetTop;
+    let windowHeight = document.documentElement.clientHeight;
+    if (window.pageYOffset + windowHeight >= target) {
+        if(window.matchMedia("(max-width: 740px)").matches)
+            title.style.paddingTop = 15 + "%";
+        else {
+            nav.style.position = "fixed";
+            nav.style.width = 100 + "%";
+            nav.style.backgroundColor = "rgba(128, 128, 128, 0.7)";
+            nav.style.opacity = 0.7;
+            title.style.paddingTop = 20.5 + "%";
+        }
+    }
+});
+
+
+window.addEventListener("scroll", function initNav() {
+    const header = document.querySelector("header");
+    const nav = document.querySelector("#Home nav");
+    const title = document.querySelector("#Home h1");
+    const target = header.offsetTop;
+    if (window.pageYOffset === target) {
+        nav.style.position = "initial";
+        nav.style.backgroundColor = "unset";
+        nav.style.opacity = 1;
+        title.style.paddingTop = 15 + "%";
+    }
+});
 
 window.addEventListener("scroll", function scrollSkills() {
     const skills = document.querySelector("#Skills");
@@ -116,3 +260,4 @@ window.addEventListener("scroll", function scrollAbout() {
         removeEventListener("scroll", scrollAbout);
     }
 });
+

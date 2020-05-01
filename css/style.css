@@ -244,8 +244,16 @@ footer div {
         font-size: 2em;
     }
 
-    nav a {
+    nav div{
+        position: fixed;
+        width: 40%;
+        border: gray 2px solid;
+        background-color: rgba(0,0,0,0.7);
+        margin-left: 60%;
+        margin-top: 0;
+        display: flex;
         font-size: 1.2em;
+        flex-direction: column;
     }
 
     nav p{

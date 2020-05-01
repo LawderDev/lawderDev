@@ -143,37 +143,7 @@ window.addEventListener("scroll", function fadeSkills() {
     }
 });
 
-window.addEventListener("scroll", function fadeSkills() {
-    const skills = document.querySelector("#Home nav");
-    const title = document.querySelector("#Home h1");
-    const target = skills.offsetTop;
-    let windowHeight = document.documentElement.clientHeight;
-    if (window.pageYOffset + windowHeight >= target) {
-        if(window.matchMedia("(max-width: 740px)").matches)
-            title.style.paddingTop = 15 + "%";
-        else {
-            skills.style.position = "fixed";
-            skills.style.width = 100 + "%";
-            skills.style.backgroundColor = "rgba(128, 128, 128, 0.7)";
-            skills.style.opacity = 0.7;
-            title.style.paddingTop = 20.5 + "%";
-        }
-    }
-});
 
-window.addEventListener("scroll", function fadeSkills() {
-    const truc = document.querySelector("header");
-    const skills = document.querySelector("#Home nav");
-    const title = document.querySelector("#Home h1");
-    const target = truc.offsetTop;
-    let windowHeight = document.documentElement.clientHeight;
-    if (window.pageYOffset === target) {
-        skills.style.position = "initial";
-        skills.style.backgroundColor = "unset";
-        skills.style.opacity = 1;
-        title.style.paddingTop = 15 + "%";
-    }
-});
 
 
 
