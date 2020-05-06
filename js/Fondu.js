@@ -144,7 +144,4 @@ window.addEventListener("scroll", function fadeSkills() {
 });
 
 
-
-
-
 fadeStart(arrayFadeHome);

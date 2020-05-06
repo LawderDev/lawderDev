@@ -203,6 +203,13 @@ footer div {
     color: white;
 }
 
+#iconPlus{
+    height: 72px;
+    width: 72px;
+    display: none;
+}
+
+
 @font-face {
     font-family: "Yu Gothic";
     src: local("Yu Gothic Medium");
@@ -227,6 +234,11 @@ footer div {
 
 @media screen and (max-width:740px) {
 
+    #iconPlus{
+        display: unset;
+        margin-left:50%;
+    }
+
     section{
         height: 80em;
     }
@@ -246,15 +258,21 @@ footer div {
 
     nav div{
         position: fixed;
-        width: 40%;
-        border: gray 2px solid;
-        background-color: rgba(0,0,0,0.7);
-        margin-left: 60%;
+        width: 30%;
+        height: 45%;
+        margin-left: 69%;
         margin-top: 0;
         display: flex;
         font-size: 1.2em;
         flex-direction: column;
+
     }
+
+    nav div a{
+        visibility: hidden;
+        text-align: center;
+    }
+
 
     nav p{
         font-size: 1.2em;
