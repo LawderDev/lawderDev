@@ -236,7 +236,7 @@ footer div {
 
     #iconPlus{
         display: unset;
-        margin-left:50%;
+        margin-left:35%;
     }
 
     section{
@@ -278,8 +278,12 @@ footer div {
         font-size: 1.2em;
     }
 
+    section ul{
+        font-size: 1.5em;
+    }
+
     section p{
-        font-size: 1.7em;
+        font-size: 1.5em;
     }
 
 
