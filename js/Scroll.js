@@ -207,12 +207,16 @@ window.addEventListener("scroll", function stickNav() {
     if (window.pageYOffset + windowHeight >= target) {
         if(window.matchMedia("(max-width: 740px)").matches)
             title.style.paddingTop = 15 + "%";
-        else {
+        else{
             nav.style.position = "fixed";
             nav.style.width = 100 + "%";
             nav.style.backgroundColor = "rgba(128, 128, 128, 0.7)";
             nav.style.opacity = 0.7;
-            title.style.paddingTop = 20.5 + "%";
+            if(window.matchMedia("(min-height: 900px)").matches) {
+                title.style.paddingTop = 20.8 + "%";
+            }else{
+                title.style.paddingTop = 20.5 + "%";
+            }
         }
     }
 });
