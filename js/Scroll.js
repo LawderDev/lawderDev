@@ -27,8 +27,11 @@ let isScroll = false;
 
 let nb = 70;
 
-
-function InitScroll(element) {
+/**
+ * Initialize element for scroll effect
+ * @param element the element
+ */
+function initScroll(element) {
     for (let i = 0; i < element.length; i++) {
         if (element[i].className.indexOf("Left") != -1) {
             element[i].style.marginLeft = -100 + "%";
@@ -39,7 +42,11 @@ function InitScroll(element) {
     }
 }
 
-
+/**
+ * Manage the scroll.
+ * @param element the element
+ * @param marginStart the default margin
+ */
 function scrollAction(element, marginStart) {
     let scroll;
     switch (marginStart) {
@@ -68,7 +75,14 @@ function scrollAction(element, marginStart) {
     }, 12);
 }
 
-function scrollComp(i, nb, element, marginStart) {
+/**
+ * Set time for scroll
+ * @param i the index of the element
+ * @param nb the time for timeout
+ * @param element the element
+ * @param marginStart the default margin
+ */
+function scrollTime(i, nb, element, marginStart) {
     const x = setTimeout(function () {
         scrollAction(element[i], marginStart);
 
@@ -76,13 +90,22 @@ function scrollComp(i, nb, element, marginStart) {
     }, nb);
 }
 
+/**
+ * Start the scroll
+ * @param element the element
+ * @param i the index
+ * @param marginStart the margin of default
+ */
 function startScroll(element, i, marginStart) {
     nb += 150;
-    scrollComp(i, nb, element, marginStart);
+    scrollTime(i, nb, element, marginStart);
 }
 
-
-function LaunchScroll(element) {
+/**
+ * Launch scroll for all elements on an array
+ * @param element the array
+ */
+function launchScroll(element) {
     for (let i = 0; i < element.length; i++) {
 
         if (element[i].className.indexOf("Left") != -1)
@@ -92,8 +115,11 @@ function LaunchScroll(element) {
     }
 }
 
-
-function ScrollAutoBottom(target)
+/**
+ * Scroll on the bottom automatically.
+ * @param target the target
+ */
+function scrollAutoBottom(target)
 {
     isScroll = true;
     window.scrollBy(0,7);
@@ -104,13 +130,17 @@ function ScrollAutoBottom(target)
             isScroll = false;
             clearInterval(timeOut);
         }else{
-        ScrollAutoBottom(target);
+        scrollAutoBottom(target);
         }
     }, 1);
 
 }
 
-function ScrollAutoTop(target){
+/**
+ * Scroll on the top automatically
+ * @param target the target
+ */
+function scrollAutoTop(target){
     isScroll = true;
     window.scrollBy(0,-7);
     let timeOut = setTimeout( function(){
@@ -121,12 +151,15 @@ function ScrollAutoTop(target){
             clearInterval(timeOut);
 
         }else{
-            ScrollAutoTop(target);
+            scrollAutoTop(target);
         }
     }, 1);
 }
 
-function InitAutoScroll(){
+/**
+ * Initialize element to click for automatic scroll
+ */
+function initAutoScroll(){
     for(let i = 0;i<arrayAutoScroll.length;i++){
         arrayAutoScroll[i].addEventListener('click',function() {
 
@@ -183,9 +216,9 @@ function InitAutoScroll(){
                         target = elementToGo.offsetTop + elementToGo.offsetHeight - compensation;
                 }
                 if (window.pageYOffset + windowHeight >= target)
-                    ScrollAutoTop(target);
+                    scrollAutoTop(target);
                 else
-                    ScrollAutoBottom(target);
+                    scrollAutoBottom(target);
             }
 
         });
@@ -194,10 +227,10 @@ function InitAutoScroll(){
 
 }
 
-InitAutoScroll();
-InitScroll(arrayScrollSkill);
-InitScroll(arrayScrollCareer);
-InitScroll(arrayScrollAbout);
+initAutoScroll();
+initScroll(arrayScrollSkill);
+initScroll(arrayScrollCareer);
+initScroll(arrayScrollAbout);
 
 window.addEventListener("scroll", function stickNav() {
     const nav = document.querySelector("#Home nav");
@@ -240,7 +273,7 @@ window.addEventListener("scroll", function scrollSkills() {
     const target = skills.offsetTop;
     let windowHeight = document.documentElement.clientHeight;
     if (window.pageYOffset + windowHeight >= target) {
-        LaunchScroll(arrayScrollSkill);
+        launchScroll(arrayScrollSkill);
         removeEventListener("scroll", scrollSkills);
     }
 });
@@ -250,7 +283,7 @@ window.addEventListener("scroll", function scrollCareer() {
     const target = career.offsetTop;
     let windowHeight = document.documentElement.clientHeight;
     if (window.pageYOffset + windowHeight >= target) {
-        LaunchScroll(arrayScrollCareer);
+        launchScroll(arrayScrollCareer);
         removeEventListener("scroll", scrollCareer);
     }
 });
@@ -260,7 +293,7 @@ window.addEventListener("scroll", function scrollAbout() {
     const target = about.offsetTop;
     let windowHeight = document.documentElement.clientHeight;
     if (window.pageYOffset + windowHeight >= target) {
-        LaunchScroll(arrayScrollAbout);
+        launchScroll(arrayScrollAbout);
         removeEventListener("scroll", scrollAbout);
     }
 });

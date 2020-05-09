@@ -44,7 +44,7 @@ let timeFade = 240;
 /**
  * Initialize the opacities of elements
  */
-function InitOpacities(elements) {
+function initOpacities(elements) {
     for (let i = 0; i < elements.length; i++) {
         if (elements[i] != undefined  && elements[i].tagName !== "HEADER") {
             elements[i].style.opacity = 0;
@@ -85,7 +85,7 @@ function fadeTime(element, time) {
  * Launch the fade of all elements
  */
 function fadeStart(elements) {
-    InitOpacities(elements);
+    initOpacities(elements);
     let time = 70;
     for (let i = 0; i < elements.length; i++) {
         time += timeFade;
