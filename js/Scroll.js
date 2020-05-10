@@ -172,7 +172,7 @@ function initAutoScroll(){
             let mediaAccueil = false;
 
             let compensationAccueil;
-            if (window.matchMedia("(max-height: 740px)").matches && window.matchMedia("(max-width: 740px)").matches) {
+            if (window.matchMedia("(max-height: 768px)").matches && window.matchMedia("(max-width: 740px)").matches) {
                 compensationAccueil = -50;
                 compensation = 550;
             }
@@ -189,7 +189,7 @@ function initAutoScroll(){
                         console.log("enter");
                         elementToGo = document.querySelector("#Home");
 
-                        if (window.matchMedia("(max-width: 740px)").matches) {
+                        if (window.matchMedia("(max-width: 768px)").matches) {
                             mediaAccueil = true;
                             target = elementToGo.offsetTop + elementToGo.offsetHeight - compensationAccueil;
                         }else{
@@ -210,7 +210,7 @@ function initAutoScroll(){
                 }
 
                 if(!mediaAccueil) {
-                    if (window.matchMedia("(max-width: 740px)").matches)
+                    if (window.matchMedia("(max-width: 768px)").matches)
                         target = elementToGo.offsetTop + elementToGo.offsetHeight - compensation;
                     else
                         target = elementToGo.offsetTop + elementToGo.offsetHeight - compensation;
@@ -238,14 +238,14 @@ window.addEventListener("scroll", function stickNav() {
     const target = nav.offsetTop;
     let windowHeight = document.documentElement.clientHeight;
     if (window.pageYOffset + windowHeight >= target) {
-        if(window.matchMedia("(max-width: 740px)").matches)
+        if(window.matchMedia("(max-width: 768px)").matches)
             title.style.paddingTop = 15 + "%";
         else{
             nav.style.position = "fixed";
             nav.style.width = 100 + "%";
             nav.style.backgroundColor = "rgba(128, 128, 128, 0.7)";
             nav.style.opacity = 0.7;
-            if(window.matchMedia("(min-height: 900px)").matches) {
+            if(window.matchMedia("(min-width: 1600px)").matches) {
                 title.style.paddingTop = 20.8 + "%";
             }else{
                 title.style.paddingTop = 20.5 + "%";

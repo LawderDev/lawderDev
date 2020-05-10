@@ -93,7 +93,7 @@ h3 {
     font-size: 2em;
     width: 50%;
     font-weight: bold;
-    color: black;
+    color: burlywood;
 }
 
 main h2 {
@@ -115,6 +115,10 @@ main h2 {
 
 #Career li {
     list-style: none;
+}
+
+#Career article{
+    margin-left: 16%;
 }
 
 #About article {
@@ -144,9 +148,6 @@ main h2 {
     background-size: cover;
 }
 
-#Career article{
-    margin-left: 10%;
-}
 
 #Career h2 {
     color: black;
@@ -232,7 +233,7 @@ footer div {
     }
 }
 
-@media screen and (max-width:740px) {
+@media screen and (max-width:768px) {
 
     #iconPlus {
         display: unset;
@@ -282,12 +283,16 @@ footer div {
         font-size: 1.5em;
     }
 
+    section div div{
+        margin: 0;
+    }
+
     section p {
         font-size: 1.5em;
     }
 }
 
-    @media screen and (min-height:900px) {
+    @media screen and (min-width:1600px) {
 
         h1 {
             font-size:5em;
@@ -313,16 +318,18 @@ footer div {
             height: 68em;
         }
 
+
+
         section{
             height: 68em;
         }
 
         section ul {
-            font-size: 3em;
+            font-size: 2.7em;
         }
 
         section p {
-            font-size: 3em;
+            font-size: 2.7em;
         }
 
         #Icons{
