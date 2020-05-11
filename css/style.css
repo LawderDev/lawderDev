@@ -280,15 +280,19 @@ footer div {
     }
 
     section ul {
-        font-size: 1.5em;
+        font-size: 1.4em;
     }
 
     section div div{
         margin: 0;
     }
 
+    #About div{
+        margin-top: 10%;
+    }
+
     section p {
-        font-size: 1.5em;
+        font-size: 1.4em;
     }
 }
 
